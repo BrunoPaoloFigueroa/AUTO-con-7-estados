@@ -14,7 +14,7 @@ DDRD|=0xF0;
 while(1){
 
 
-if(PIND&0X06){
+if((PIND&0X06)==0x06){
 
 PORTD|=0x10;
 PORTD&=~(0x20);
@@ -24,7 +24,7 @@ _delay_ms(500);
 PORTD|=0x20;
 
 }
-if((PIND&0X08)){
+if(PIND&0X08){
 
     PORTD|=0x40;
     PORTD&=~(0x80);
