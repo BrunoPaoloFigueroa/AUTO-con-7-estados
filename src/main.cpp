@@ -1,5 +1,7 @@
+
+#define F_CPU 16000000UL
+
 #include <avr/io.h>
-#define F_CPU 16000000Ul
 #include <util/delay.h>
 
 int main(void){
@@ -9,14 +11,15 @@ DDRD&=~(0x0E);
 
 DDRD|=0xF0;
 
-char a=(PIND&0X0E);
+
 
 while(1){
 
-    
+    char a=PIND&0X0E;
+    _delay_ms(50);
         switch (a){
 
-_delay_ms(50);
+        
 
             case 0x02:
 
@@ -32,7 +35,7 @@ _delay_ms(50);
 
             case 0x04:
 
-                        //Avance
+            //Avance
             PORTD|=0x10;   //Motor A
             PORTD&=~(0x20);
 
@@ -43,6 +46,8 @@ _delay_ms(50);
             break;
 
             case 0x06:
+
+            //Retro
             PORTD|=0x40;
             PORTD&=~(0x80);
         
