@@ -16,7 +16,7 @@ DDRD|=0xF0;
 while(1){
 
     char a=PIND&0X0E;
-    _delay_ms(50);
+    _delay_ms(100);
         switch (a){
 
         
@@ -48,54 +48,60 @@ while(1){
             case 0x06:
 
             //Retro
-            PORTD|=0x40;
-            PORTD&=~(0x80);
+            PORTD&=~(0x10);   //Motor A
+            PORTD|=(0x20);
         
-            _delay_ms(500);
-        
-            PORTD|=0x80;
+           
+            PORTD&=~(0x40);   //Motor B
+            PORTD|=(0x80);
 
             break;
 
             case 0x08:
-            PORTD|=0x40;
+
+            //Derecha Larga
+            PORTD&=~(0x10);   //Motor A
+            PORTD&=~(0x20);
+
+            PORTD|=0x40;   //Motor B
             PORTD&=~(0x80);
-        
-            _delay_ms(500);
-        
-            PORTD|=0x80;
 
             break;
 
             case 0x0A:
-            PORTD|=0x40;
+
+            //Derecha Corta
+            PORTD&=~(0x10);   //Motor A
+            PORTD|=(0x20);
+
+            PORTD|=0x40;   //Motor B
             PORTD&=~(0x80);
-        
-            _delay_ms(500);
-        
-            PORTD|=0x80;
 
             break;
 
             case 0x0C:
-            PORTD|=0x40;
+
+            //Izquierda Larga
+            PORTD|=(0x10);   //Motor A
+            PORTD&=~(0x20);
+
+            PORTD&=~(0x40);   //Motor B
             PORTD&=~(0x80);
-        
-            _delay_ms(500);
-        
-            PORTD|=0x80;
 
             break;
 
             case 0x0E:
-            PORTD|=0x40;
-            PORTD&=~(0x80);
-        
-            _delay_ms(500);
-        
-            PORTD|=0x80;
 
-            break;
+             //Izquierda Corta
+             PORTD|=(0x10);   //Motor A
+             PORTD&=~(0x20);
+ 
+             PORTD&=~(0x40);   //Motor B
+             PORTD|=(0x80);
+ 
+             break;
+
+            
 
         }
 
