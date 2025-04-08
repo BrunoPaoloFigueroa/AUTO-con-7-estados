@@ -13,13 +13,13 @@ char a=(PIND&0X0E);
 
 while(1){
 
-    if (a){
+    if (PIND&0X0E){
 
-        _delay_ms(500);
+        _delay_ms(50);
 
         switch (a){
 
-            case 0x01:
+            case 0x02:
 
             //PARO
             PORTD&=~(0x10);   //Motor A
@@ -31,33 +31,65 @@ while(1){
 
             break;
 
-            case 0x02:
-
-
-            break;
-
-            case 0x03:
-
-
-            break;
-
             case 0x04:
 
+                        //Avance
+            PORTD|=0x10;   //Motor A
+            PORTD&=~(0x20);
 
-            break;
-
-            case 0x05:
-
+            PORTD|=0x40;   //Motor B
+            PORTD&=~(0x80);
+         
 
             break;
 
             case 0x06:
-
+            PORTD|=0x40;
+            PORTD&=~(0x80);
+        
+            _delay_ms(500);
+        
+            PORTD|=0x80;
 
             break;
 
-            case 0x07:
+            case 0x08:
+            PORTD|=0x40;
+            PORTD&=~(0x80);
+        
+            _delay_ms(500);
+        
+            PORTD|=0x80;
 
+            break;
+
+            case 0x0A:
+            PORTD|=0x40;
+            PORTD&=~(0x80);
+        
+            _delay_ms(500);
+        
+            PORTD|=0x80;
+
+            break;
+
+            case 0x0C:
+            PORTD|=0x40;
+            PORTD&=~(0x80);
+        
+            _delay_ms(500);
+        
+            PORTD|=0x80;
+
+            break;
+
+            case 0x0E:
+            PORTD|=0x40;
+            PORTD&=~(0x80);
+        
+            _delay_ms(500);
+        
+            PORTD|=0x80;
 
             break;
 
