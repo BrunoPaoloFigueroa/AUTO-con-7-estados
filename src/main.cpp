@@ -9,12 +9,66 @@ DDRD&=~(0x0E);
 
 DDRD|=0xF0;
 
-
+char a=(PIND&0X0E);
 
 while(1){
 
+    if (a){
+
+        _delay_ms(500);
+
+        switch (a){
+
+            case 0x01:
+
+            //PARO
+            PORTD&=~(0x10);   //Motor A
+            PORTD&=~(0x20);
+
+            PORTD&=~(0x40);   //Motor B
+            PORTD&=~(0x80);
+
+
+            break;
+
+            case 0x02:
+
+
+            break;
+
+            case 0x03:
+
+
+            break;
+
+            case 0x04:
+
+
+            break;
+
+            case 0x05:
+
+
+            break;
+
+            case 0x06:
+
+
+            break;
+
+            case 0x07:
+
+
+            break;
+
+        }
+
+    }
+
+ /*    
 if(PIND&0X02){
 
+//PARO
 PORTD&=~(0x10);   //Motor A
 PORTD&=~(0x20);
 
@@ -26,6 +80,7 @@ PORTD&=~(0x80);
 
 if(PIND&0X04){
 
+//Avance
 PORTD|=0x10;   //Motor A
 PORTD&=~(0x20);
 
@@ -33,6 +88,17 @@ PORTD|=0x40;   //Motor B
 PORTD&=~(0x80);
 
 }
+
+if((PIND&0X03)==0X03){
+
+//Retro
+    PORTD&=~(0x10);   //Motor A
+    PORTD|=0x20;
+    
+    PORTD&=~(0x40);   //Motor B
+    PORTD|=0x80;
+    
+    }
 
 
 if(PIND&0X08){
@@ -46,7 +112,7 @@ if(PIND&0X08){
 
 
 }
-
+*/
 
 }
 
