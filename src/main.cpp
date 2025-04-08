@@ -13,11 +13,10 @@ char a=(PIND&0X0E);
 
 while(1){
 
-    if (PIND&0X0E){
-
-        _delay_ms(50);
-
+    
         switch (a){
+
+_delay_ms(50);
 
             case 0x02:
 
@@ -95,7 +94,7 @@ while(1){
 
         }
 
-    }
+    
 
  /*    
 if(PIND&0X02){
