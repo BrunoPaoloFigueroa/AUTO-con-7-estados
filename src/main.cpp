@@ -13,17 +13,28 @@ DDRD|=0xF0;
 
 while(1){
 
+if(PIND&0X02){
 
-if((PIND&0X06)==0x06){
-
-PORTD|=0x10;
+PORTD&=~(0x10);   //Motor A
 PORTD&=~(0x20);
 
-_delay_ms(500);
-
-PORTD|=0x20;
+PORTD&=~(0x40);   //Motor B
+PORTD&=~(0x80);
 
 }
+
+
+if(PIND&0X04){
+
+PORTD|=0x10;   //Motor A
+PORTD&=~(0x20);
+
+PORTD|=0x40;   //Motor B
+PORTD&=~(0x80);
+
+}
+
+
 if(PIND&0X08){
 
     PORTD|=0x40;
